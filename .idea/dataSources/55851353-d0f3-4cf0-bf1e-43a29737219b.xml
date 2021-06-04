@@ -17,5 +17,34 @@
     <schema id="12" parent="1" name="user_db">
       <Current>1</Current>
     </schema>
+    <table id="13" parent="12" name="roles"/>
+    <table id="14" parent="12" name="users"/>
+    <column id="15" parent="13" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="16" parent="13" name="name">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="17" parent="14" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="18" parent="14" name="_class">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="19" parent="14" name="password">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="20" parent="14" name="email">
+      <Position>1</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="21" parent="14" name="roles">
+      <Position>1</Position>
+      <DataType>array(0)|2003s</DataType>
+    </column>
+    <column id="22" parent="14" name="username">
+      <Position>2</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
   </database-model>
 </dataSource>
