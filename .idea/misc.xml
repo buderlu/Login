@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/spring-boot-security-jwt-auth-mongodb-master/pom.xml" />
+        <option value="$PROJECT_DIR$/UserAutenticationService/pom.xml" />
       </list>
     </option>
   </component>
