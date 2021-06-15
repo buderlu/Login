@@ -1,0 +1,16 @@
+package UserAutenticationService.serviceCommunication;
+
+
+
+import UserAutenticationService.config.MessagingConfig;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.stereotype.Component;
+
+@Component
+public class RabbitExchangePublisher {
+
+    public void publishUserIdOnExchange(String userId, RabbitTemplate template){
+        template.convertAndSend(MessagingConfig.EXCHANGE, MessagingConfig.ROUTING_KEY, userId);
+        System.out.println("new id sent to" +MessagingConfig.EXCHANGE +"...");
+    }
+}

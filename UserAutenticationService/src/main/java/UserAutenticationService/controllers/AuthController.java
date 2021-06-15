@@ -15,6 +15,8 @@ import UserAutenticationService.repository.RoleRepository;
 import UserAutenticationService.repository.UserRepository;
 import UserAutenticationService.security.jwt.JwtUtils;
 import UserAutenticationService.security.services.UserDetailsImpl;
+import UserAutenticationService.serviceCommunication.RabbitExchangePublisher;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,6 +30,7 @@ import org.springframework.web.bind.annotation.*;
 import UserAutenticationService.models.ERole;
 import UserAutenticationService.models.Role;
 import UserAutenticationService.models.User;
+
 
 
 
@@ -49,6 +52,13 @@ public class AuthController {
 
 	@Autowired
 	JwtUtils jwtUtils;
+
+
+	@Autowired
+	RabbitExchangePublisher rabbitExchangePublisher;
+
+	@Autowired
+	RabbitTemplate rabbitTemplate;
 
 	@PostMapping("signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -122,6 +132,8 @@ public class AuthController {
 		}
 
 		user.setRoles(roles);
+		//rabbitExchangePublisher.publishUserIdOnExchange(user.getId(),rabbitTemplate);
+
 		userRepository.save(user);
 
 
