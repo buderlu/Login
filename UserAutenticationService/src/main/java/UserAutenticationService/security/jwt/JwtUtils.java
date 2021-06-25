@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import UserAutenticationService.security.services.UserDetailsImpl;
+import UserAutenticationService.security.service.UserDetailsImpl;
 import io.jsonwebtoken.*;
 
 @Component
@@ -21,7 +21,7 @@ public class JwtUtils {
 	@Value("${bezkoder.app.jwtExpirationMs}")
 	private int jwtExpirationMs;
 
-	public String generateJwtToken(Authentication authentication) {
+	public String generateJwtToken(Authentication authentication) {		//generate Token
 
 		UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
 
@@ -33,11 +33,11 @@ public class JwtUtils {
 				.compact();
 	}
 
-	public String getUserNameFromJwtToken(String token) {
+	public String getUserNameFromJwtToken(String token) {  //retrieve username from jwt token
 		return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
 	}
 
-	public boolean validateJwtToken(String authToken) {
+	public boolean validateJwtToken(String authToken) {    // validate token
 		try {
 			Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
 			return true;
