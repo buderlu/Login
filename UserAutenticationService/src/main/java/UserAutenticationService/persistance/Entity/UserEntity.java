@@ -2,7 +2,10 @@ package UserAutenticationService.persistance.Entity;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
+import javax.persistence.GeneratedValue;
 
+import javax.persistence.GenerationType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -11,11 +14,14 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Document(collection = "users")
 public class UserEntity {
-  @Id
-  private String id;
 
+  @Id
+ // @GeneratedValue(strategy = GenerationType.IDENTITY)
+ // private long id;
+  private String id;
   @NotBlank
   @Size(max = 20)
   private String username;
@@ -41,13 +47,16 @@ public class UserEntity {
     this.password = password;
   }
 
-  public String getId() {
+
+
+ public String getId() {
     return id;
   }
 
   public void setId(String id) {
     this.id = id;
-  }
+  } //id
+
 
   public String getUsername() {
     return username;

@@ -131,8 +131,11 @@ public class AuthController {
 				}
 			});
 		}
-
+		//user.setId();
+		System.out.println(user.getId());
 		user.setRoles(roleEntities);
+
+	//	new IdPublisher().publishUserIdOnExchange(user.getId(),rabbitTemplate);
 		//rabbitExchangePublisher.publishUserIdOnExchange(user.getId(),rabbitTemplate);
 
 		userRepository.save(user);

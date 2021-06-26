@@ -21,6 +21,7 @@ public class UserManagementService implements UserDetailsService {
 		UserEntity user = userRepository.findByUsername(username)
 				.orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
 
+		System.out.println(user.getId());
 		return UserDetailsImpl.build(user);
 	}
 
