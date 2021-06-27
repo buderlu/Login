@@ -3,6 +3,7 @@ package UserAutenticationService.controller;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
@@ -11,8 +12,8 @@ import UserAutenticationService.dto.requestDto.LoginRequestDto;
 import UserAutenticationService.dto.requestDto.SignupRequestDto;
 import UserAutenticationService.dto.responseDto.JwtResponseDto;
 import UserAutenticationService.dto.responseDto.MessageResponseDto;
-import UserAutenticationService.persistance.repository.RoleRepository;
-import UserAutenticationService.persistance.repository.UserRepository;
+import UserAutenticationService.persistence.repository.RoleRepository;
+import UserAutenticationService.persistence.repository.UserRepository;
 import UserAutenticationService.security.jwt.JwtUtils;
 import UserAutenticationService.security.service.UserDetailsImpl;
 import UserAutenticationService.serviceCommunication.IdPublisher;
@@ -26,9 +27,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import UserAutenticationService.persistance.Entity.ERoleEntity;
-import UserAutenticationService.persistance.Entity.RoleEntity;
-import UserAutenticationService.persistance.Entity.UserEntity;
+import UserAutenticationService.persistence.Entity.ERoleEntity;
+import UserAutenticationService.persistence.Entity.RoleEntity;
+import UserAutenticationService.persistence.Entity.UserEntity;
 
 
 
@@ -134,10 +135,10 @@ public class AuthController {
 		//user.setId();
 		System.out.println(user.getId());
 		user.setRoles(roleEntities);
-
-		new IdPublisher().publishUserIdOnExchange(user.getId(),rabbitTemplate);
+		user.setId(UUID.randomUUID().toString());
+		//new IdPublisher().publishUserIdOnExchange(user.getId(),rabbitTemplate);
 		//rabbitExchangePublisher.publishUserIdOnExchange(user.getId(),rabbitTemplate);
-
+		System.out.println(user.getId());
 		userRepository.save(user);
 
 

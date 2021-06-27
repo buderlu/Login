@@ -1,11 +1,11 @@
-package UserAutenticationService.persistance.Entity;
+package UserAutenticationService.persistence.Entity;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
-import javax.persistence.GeneratedValue;
 
-import javax.persistence.GenerationType;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

@@ -1,4 +1,4 @@
-package UserAutenticationService.persistance.Entity;
+package UserAutenticationService.persistence.Entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

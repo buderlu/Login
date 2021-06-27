@@ -1,10 +1,10 @@
-package UserAutenticationService.persistance.repository;
+package UserAutenticationService.persistence.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import UserAutenticationService.persistance.Entity.UserEntity;
+import UserAutenticationService.persistence.Entity.UserEntity;
 
 public interface UserRepository extends MongoRepository<UserEntity, String> {
   Optional<UserEntity> findByUsername(String username);
