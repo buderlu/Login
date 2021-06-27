@@ -136,7 +136,9 @@ public class AuthController {
 		System.out.println(user.getId());
 		user.setRoles(roleEntities);
 		user.setId(UUID.randomUUID().toString());
-		//new IdPublisher().publishUserIdOnExchange(user.getId(),rabbitTemplate);
+
+
+		new IdPublisher().publishUserIdOnExchange(user.getId(),rabbitTemplate);
 		//rabbitExchangePublisher.publishUserIdOnExchange(user.getId(),rabbitTemplate);
 		System.out.println(user.getId());
 		userRepository.save(user);
