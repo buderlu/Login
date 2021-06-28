@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/UserAutenticationService/UserAuthenticationService.iml" filepath="$PROJECT_DIR$/UserAutenticationService/UserAuthenticationService.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/spring-boot-security-jwt-auth-mongodb-master.iml" filepath="$PROJECT_DIR$/.idea/spring-boot-security-jwt-auth-mongodb-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/UserAutenticationService/spring-boot-security-jwt-mongodb.iml" filepath="$PROJECT_DIR$/UserAutenticationService/spring-boot-security-jwt-mongodb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserManagementService/UserAuthenticationService.iml" filepath="$PROJECT_DIR$/UserManagementService/UserAuthenticationService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserManagementService/UserManagementService.iml" filepath="$PROJECT_DIR$/UserManagementService/UserManagementService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/UserManagementService..iml" filepath="$PROJECT_DIR$/.idea/UserManagementService..iml" />
     </modules>
   </component>
 </project>
